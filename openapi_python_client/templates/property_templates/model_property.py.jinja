@@ -19,7 +19,7 @@
     {% set type_string = property.get_type_string(json=True) %}
 {% endif %}
 {% if property.required %}
-{% if property.nullable %}
+{% if true %}
 {{ destination }} = {{ transformed }} if {{ source }} else None
 {% else %}
 {{ destination }} = {{ transformed }}
@@ -27,7 +27,7 @@
 {% else %}
 {{ destination }}{% if declare_type %}: {{ type_string }}{% endif %} = UNSET
 if not isinstance({{ source }}, Unset):
-{% if property.nullable %}
+{% if true %}
     {{ destination }} = {{ transformed }} if {{ source }} else None
 {% else %}
     {{ destination }} = {{ transformed }}

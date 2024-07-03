@@ -18,7 +18,7 @@
     {% set type_string = "Union[Unset, Tuple[None, bytes, str]]" %}
 {% endif %}
 {% if property.required %}
-{% if property.nullable %}
+{% if true %}
 {{ destination }} = {{ transformed }} if {{ source }} else None
 {% else %}
 {{ destination }} = {{ transformed }}
@@ -26,7 +26,7 @@
 {% else %}
 {{ destination }}{% if declare_type %}: {{ type_string }}{% endif %} = UNSET
 if not isinstance({{ source }}, Unset):
-{% if property.nullable %}
+{% if true %}
     {{ destination }} = {{ transformed }} if {{ source }} else None
 {% else %}
     {{ destination }} = {{ transformed }}

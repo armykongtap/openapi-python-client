@@ -16,7 +16,7 @@ isoparse({{ source }})
 {% set transformed = transformed + ".encode()" %}
 {% endif %}
 {% if property.required %}
-{% if property.nullable %}
+{% if true %}
 {{ destination }} = {{ transformed }} if {{ source }} else None
 {% else %}
 {{ destination }} = {{ transformed }}
@@ -30,7 +30,7 @@ isoparse({{ source }})
 {{ destination }} = UNSET
 {% endif %}
 if not isinstance({{ source }}, Unset):
-{% if property.nullable %}
+{% if true %}
     {{ destination }} = {{ transformed }} if {{ source }} else None
 {% else %}
     {{ destination }} = {{ transformed }}

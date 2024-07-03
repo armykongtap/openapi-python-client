@@ -48,7 +48,7 @@ if isinstance({{ source }}, Unset):
     {{ destination }} = UNSET
     {% set ns.has_if = true %}
 {% endif %}
-{% if property.nullable %}
+{% if true %}
     {% if ns.has_if %}
 elif {{ source }} is None:
     {% else %}
